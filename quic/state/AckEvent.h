@@ -155,7 +155,7 @@ struct AckEvent {
    */
 
   // if this AckEvent came from an implicit ACK rather than a real one
-  bool implicit{false};
+  bool implicit{true};
 
   // whether the transport was app limited when largestNewlyAckedPacket was sent
   bool largestNewlyAckedPacketAppLimited{false};
@@ -323,7 +323,7 @@ struct AckEvent {
     folly::Optional<std::chrono::microseconds> maybeAckDelay;
     folly::Optional<PacketNumberSpace> maybePacketNumberSpace;
     folly::Optional<PacketNum> maybeLargestAckedPacket;
-    bool isImplicitAck{false};
+    bool isImplicitAck{true};
     explicit BuilderFields() = default;
   };
 
